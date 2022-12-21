@@ -91,7 +91,12 @@ in
       description =
         lib.mdDoc ''
           The ruleset file to be used with nftables.  Should be in a format that
-          can be loaded using "nft -f".  The ruleset is updated atomically.
+          can be loaded using "nft -f".  
+          This ruleset file will be loaded when the nftables service next restarts.
+          
+          Disclaimer: Changes to the ruleset file are not tracked.
+          This differs from using the `networking.nftables.ruleset` as changes to the 
+          ruleset file will not trigger the nftables service to restart on rebuild.
         '';
     };
   };
